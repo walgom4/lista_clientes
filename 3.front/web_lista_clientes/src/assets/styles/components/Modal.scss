@@ -1,0 +1,25 @@
+.scroll-modal {
+  border: 1px solid;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  height: 500px;
+}
+
+@media (min-width: 991px) {
+  .modal-style {
+    background-color: #0000005c;
+    display: none !important;
+  }
+}
+
+@media (max-width: 990.9999px) {
+  .modal-style {
+    background-color: #0000005c;
+    display: block !important;
+  }
+}
+
+.modal-style-visible {
+    background-color: #0000005c;
+    display: block !important;
+  }
