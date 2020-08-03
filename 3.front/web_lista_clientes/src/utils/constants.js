@@ -1,7 +1,7 @@
 export const routes = [
 ];
 
-export const URL = 'http://localhost:8000/api';
+export const URL = 'http://api.clientesapp.walgom.cc/api';
 export const GET_USER = `${URL}/user/`;
 export const GET_CLIENT = `${URL}/client/`;
 export const GET_CREDIT_CARD = `${URL}/creditCard/`;
