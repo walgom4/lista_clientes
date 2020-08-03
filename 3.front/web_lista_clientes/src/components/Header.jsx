@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setErrorModal } from '../actions';
 
 const Header = (props) => {
   return (
@@ -11,9 +10,9 @@ const Header = (props) => {
         <div className='horizontal-list'>
           <ul>
             <li>
-              <span className='Normal-1'>Bienvenido, Walter</span>
+              <span className='Normal-1'>Bienvenid@.</span>
             </li>
-            
+
             <li>
               <Link to='/' className='Normal-1'>
                 Cerrar sesión
@@ -27,14 +26,10 @@ const Header = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { errorModal } = state.layout;
-  return {
-    errorModal,
-  };
+  const {} = state.layout;
+  return {};
 };
 
-const mapDispatchToProps = {
-  setErrorModal,
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

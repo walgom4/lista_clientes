@@ -42,7 +42,7 @@ class cardType(models.Model):
 class creditCard(models.Model):
     id = models.AutoField(primary_key=True)
     numberCard = models.CharField(max_length=16)
-    fk_cardType = models.ForeignKey(cardType, on_delete=models.CASCADE, null=True)
+    fk_cardType = models.CharField(max_length=50)
     fk_client = models.ForeignKey(client, on_delete=models.CASCADE, null=True)
     date = models.DateField()
     cvv = models.CharField(max_length=3)

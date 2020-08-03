@@ -10,11 +10,9 @@ import Signup from '../components/Signup';
 import Client from '../components/Client';
 import HandleCreditCard from '../components/HandleCreditCard';
 import CreditCard from '../components/CreditCard';
-import { setBreadCrumbAndReport } from '../actions';
 
 const App = (props) => {
   history.listen((location) => {
-    props.setBreadCrumbAndReport(location);
     window.scrollTo(0, 0);
   });
 
@@ -57,7 +55,6 @@ const App = (props) => {
 };
 
 const mapDispatchToProps = {
-  setBreadCrumbAndReport,
 };
 
 export default connect(null, mapDispatchToProps)(App);

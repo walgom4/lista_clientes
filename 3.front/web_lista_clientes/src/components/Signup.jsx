@@ -1,9 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { requestSignup } from '../actions/operations';
+import history from '../utils/history';
+import { setLoginMessage } from '../actions';
 
 const Signup = (props) => {
   useEffect(() => {}, []);
+
+  const [signupState, setState] = useState({
+    varDisplay: false,
+  });
+
+  const handleOnChange = (event) => {
+    event.persist();
+    if (event) {
+      const { name, value } = event.target;
+      setState({
+        ...signupState,
+        [name]: value,
+      });
+    }
+  };
+  const send = (event) => {
+    event.persist();
+    if (event) {
+      console.log(signupState);
+      props.requestSignup(signupState, function (response) {
+        if (response.username != null) {
+          console.log(response);
+          props.setLoginMessage('El usuario ha sido creado');
+          history.push('/');
+        } else {
+          setState({
+            ...signupState,
+            varDisplay: true,
+          });
+        }
+      });
+    }
+  };
 
   return (
     <>
@@ -19,10 +55,11 @@ const Signup = (props) => {
                 Usuario
               </label>
               <input
-                id='exampleEmail'
+                name='username'
                 className='input-default col-md-12'
                 type='text'
                 placeholder='Ingrese un valor'
+                onChange={handleOnChange}
               />
             </div>
           </div>
@@ -32,10 +69,11 @@ const Signup = (props) => {
                 Nombre
               </label>
               <input
-                id='exampleEmail'
+                name='first_name'
                 className='input-default col-md-12'
                 type='text'
                 placeholder='Ingrese un valor'
+                onChange={handleOnChange}
               />
             </div>
           </div>
@@ -45,10 +83,11 @@ const Signup = (props) => {
                 Apellido
               </label>
               <input
-                id='exampleEmail'
+                name='last_name'
                 className='input-default col-md-12'
                 type='text'
                 placeholder='Ingrese un valor'
+                onChange={handleOnChange}
               />
             </div>
           </div>
@@ -58,10 +97,11 @@ const Signup = (props) => {
                 Correo
               </label>
               <input
-                id='exampleEmail'
+                name='email'
                 className='input-default col-md-12'
                 type='text'
                 placeholder='Ingrese un valor'
+                onChange={handleOnChange}
               />
             </div>
           </div>
@@ -71,11 +111,19 @@ const Signup = (props) => {
                 Clave
               </label>
               <input
-                id='exampleEmail'
+                name='password'
                 className='input-default col-md-12'
                 type='password'
                 placeholder='Ingrese un valor'
+                onChange={handleOnChange}
               />
+            </div>
+          </div>
+          <div className='row' style={{ display: signupState.varDisplay ? 'block' : 'none' }}>
+            <div className='col-md-12 form-group'>
+              <div className='status-notification nt-danger'>
+                <span>No se pudo crear el usuario</span>
+              </div>
             </div>
           </div>
           <div className='row'>
@@ -86,7 +134,9 @@ const Signup = (props) => {
             </div>
           </div>
           <div className='row button-end'>
-            <div className='l-button p-buttonenable'>Enviar</div>
+            <div className='l-button p-buttonenable' role='button' type='submit' onClick={send}>
+              Enviar
+            </div>
           </div>
         </div>
       </div>
@@ -101,6 +151,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToprops = {};
+const mapDispatchToprops = {
+  requestSignup,
+  setLoginMessage,
+};
 
 export default connect(mapStateToProps, mapDispatchToprops)(Signup);

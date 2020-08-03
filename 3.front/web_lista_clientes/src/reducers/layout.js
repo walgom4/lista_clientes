@@ -1,18 +1,43 @@
-import { layoutStore } from './initialState';
-import { routes } from '../utils/constants';
+import { initialState } from './initialState';
 
-export default function layout(state = layoutStore, action) {
+export default function layout(state = initialState, action) {
   switch (action.type) {
-    case 'SET_ERROR_MODAL':
+    case 'SET_LOGIN_MESSAGE':
       return {
         ...state,
-        errorModal: action.payload,
+        loginMessage: action.payload,
       };
-    case 'SET_VISIBLE_MODAL':
+    case 'SET_TOKEN':
       return {
         ...state,
-        visibleModal: action.payload,
+        token: action.payload,
       };
+    case 'SET_CURRENT_USER':
+      return {
+        ...state,
+        currentUser: action.payload,
+      };
+    case 'SET_CLIENTS':
+      return {
+        ...state,
+        clients: action.payload,
+      };
+    case 'SET_CURRENT_CLIENT':
+      return {
+        ...state,
+        currentClient: action.payload,
+      };
+    case 'SET_CREDIT_CARDS':
+      return {
+        ...state,
+        creditCards: action.payload,
+      };
+    case 'SET_CURRENT_CREDIT_CARD':
+      return {
+        ...state,
+        currentCreditCard: action.payload,
+      };
+
     default:
       return state;
   }
