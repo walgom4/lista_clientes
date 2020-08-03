@@ -85,7 +85,7 @@ DATABASES = {
 		'ENGINE': 'django.db.backends.postgresql',
         'USER': 'us_listac',
         'PASSWORD': 'passListac',
-        'PORT':'5432',
+        'PORT':'5433',
         'HOST':'localhost'
     }
 }
@@ -128,12 +128,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/clients_static/'
-MEDIA_ROOT = '/home/walgom44/webapps/clients_static/media'
-MEDIA_URL = 'http://clientesapp.walgom.cc/clients_static/media/'
+MEDIA_ROOT = 'C:/Users/walgom/Documents/elxampp/htdocs/clients_static/media'
+MEDIA_URL = 'http://localhost:81/clients_static/media/'
 STATIC_ROOT = 'C:/Users/walgom/Documents/elxampp/htdocs/clients_static'
 STATICFILES_DIRS = (
-    '/home/walgom44/webapps/clients_static/media/',
-    '/home/walgom44/webapps/clients_static/media/Users',
+    'C:/Users/walgom/Documents/elxampp/htdocs/clients_static/media/',
+    'C:/Users/walgom/Documents/elxampp/htdocs/clients_static/media/Users',
 )
 
 AUTH_USER_MODEL = 'mainapp.User'
