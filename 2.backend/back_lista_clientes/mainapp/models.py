@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 class User(AbstractUser):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=50, unique=True)
     identification = models.CharField(max_length=50, null=True, blank=True)
-    email = models.CharField(max_length=50, unique=True)
+    email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     
@@ -37,10 +38,10 @@ class cardType(models.Model):
 
     def __str__(self):
         return "{}".format(self.id)
-        
+
 class creditCard(models.Model):
     id = models.AutoField(primary_key=True)
-    number = models.CharField(max_length=150)
+    numberCard = models.CharField(max_length=16)
     fk_cardType = models.ForeignKey(cardType, on_delete=models.CASCADE, null=True)
     fk_client = models.ForeignKey(client, on_delete=models.CASCADE, null=True)
     date = models.DateField()

@@ -138,12 +138,14 @@ STATICFILES_DIRS = (
 AUTH_USER_MODEL = 'mainapp.User'
 
 REST_FRAMEWORK = {
-    'COERCE_DECIMAL_TO_STRING': False,
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'COERCE_DECIMAL_TO_STRING': False,
     'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
 }
 
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
+
