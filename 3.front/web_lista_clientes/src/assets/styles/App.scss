@@ -32,7 +32,6 @@
   box-sizing: border-box;
 }
 
-
 html {
   font-family: 'Patrick Hand';
   line-height: 1.15;
@@ -842,7 +841,6 @@ label {
   margin-bottom: 1rem;
 }
 
-
 .Title-2 {
   font-size: 24px;
   font-weight: 600;
@@ -963,6 +961,12 @@ label {
 .horizontal-list ul li a {
   color: white !important;
   text-decoration: none;
+}
+.horizontal-list ul li span {
+  color: white !important;
+}
+.top_bar-single span {
+  color: white !important;
 }
 
 .nbar-breadcrumb {
@@ -1175,10 +1179,10 @@ label {
 }
 //end buttons
 //start inputs
-input{
+input {
   font-family: 'Patrick Hand';
 }
-select{
+select {
   font-family: 'Patrick Hand';
 }
 .input-default {
@@ -1257,3 +1261,22 @@ select{
   background-color: var(--white);
 }
 // end cards
+//data table
+.datatable {
+  border-collapse: collapse;
+  border-style: hidden;
+  margin-right: 50px;
+  text-align: left;
+}
+.datatable th {
+  border: 1px solid var(--grey-30);
+}
+.datatable td {
+  border-left: 1px solid var(--grey-30);
+}
+
+.datatable td,
+th {
+  padding: 5px 20px 20px 5px;
+}
+//end data table

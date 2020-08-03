@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { setErrorModal } from '../actions';
 
 const Header = (props) => {
-
   return (
     <>
       <div className='top_bar-single'>
@@ -12,13 +11,13 @@ const Header = (props) => {
         <div className='horizontal-list'>
           <ul>
             <li>
-              <Link to='/' className='Normal-1'>uno</Link>
+              <span className='Normal-1'>Bienvenido, Walter</span>
             </li>
+            
             <li>
-              <Link to='/' className='Normal-1'>uno</Link>
-            </li>
-            <li>
-              <Link to='/' className='Normal-1'>uno</Link>
+              <Link to='/' className='Normal-1'>
+                Cerrar sesión
+              </Link>
             </li>
           </ul>
         </div>

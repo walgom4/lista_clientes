@@ -4,6 +4,12 @@ import { connect } from 'react-redux';
 import history from '../utils/history';
 import Layout from '../containers/Layout';
 import Styles from '../components/Styles';
+import Home from '../components/Home';
+import Login from '../components/Login';
+import Signup from '../components/Signup';
+import Client from '../components/Client';
+import HandleCreditCard from '../components/HandleCreditCard';
+import CreditCard from '../components/CreditCard';
 import { setBreadCrumbAndReport } from '../actions';
 
 const App = (props) => {
@@ -16,20 +22,35 @@ const App = (props) => {
     <Router history={history}>
       <Switch>
         <Route exact path={['/']}>
+          <Route exact path='/' component={Login} />
+        </Route>
+        <Route exact path={['/signup']}>
+          <Route exact path='/signup' component={Signup} />
+        </Route>
+        <Route exact path={['/home']}>
           <Layout>
-            <Route exact path='/' component={Styles} />
+            <Route exact path='/home' component={Home} />
+          </Layout>
+        </Route>
+        <Route exact path={['/creditCard']}>
+          <Layout>
+            <Route exact path='/creditCard' component={CreditCard} />
+          </Layout>
+        </Route>
+        <Route exact path={['/handleCreditCard']}>
+          <Layout>
+            <Route exact path='/handleCreditCard' component={HandleCreditCard} />
+          </Layout>
+        </Route>
+        <Route exact path={['/client']}>
+          <Layout>
+            <Route exact path='/client' component={Client} />
           </Layout>
         </Route>
 
-        <Route exact path={['/Styles']}>
+        <Route exact path={['/styles']}>
           <Route exact path='/Styles' component={Styles} />
         </Route>
-
-        {/* <Route exact path={['/mailbox']}>
-          <Layout>
-            <Route exact path='/mailbox' component={MailBox} />
-          </Layout>
-        </Route> */}
       </Switch>
     </Router>
   );

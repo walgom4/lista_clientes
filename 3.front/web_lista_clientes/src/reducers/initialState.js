@@ -9,14 +9,6 @@ export const layoutStore = {
   init: false,
   loading: false,
   defaultFilters: {},
-  breadCrumbs: [
-    {
-      order: '0',
-      name: 'Inicio',
-      link: '/',
-      last: true,
-    },
-  ],
 };
 
 export const searchStore = {
